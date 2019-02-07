@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mWebsiteEditText = findViewById(R.id.website_edittext);
         mLocationEditText = findViewById(R.id.location_edittext);
         mShareTextEditText = findViewById(R.id.share_edittext);
@@ -26,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openWebsite(View view) {
         String url= mWebsiteEditText.getText().toString();
+
         Uri webpage=Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW,webpage);
+
         if(intent.resolveActivity(getPackageManager())!= null){
             startActivity(intent);
         }
